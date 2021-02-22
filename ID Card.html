@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <style>
+    
+    .container
+    {
+        height:350px;
+        width:250px;
+        left:50px;
+        float:left;
+        border-left: 10px;
+        background-color: pink;
+    }
+    .border
+    {
+        position: absolute;
+        top:10px;
+        left:500px;
+        clear: both;
+        border:20px solid blue;
+        height:400px;
+        width:300px;
+        text-align: center;
+        background-color: rgb(197, 209, 243);
+    }
+    </style>
+    
+<body>
+<div class = "container">
+    <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile()" style="display: none;"></p>
+    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+    <p><img id="output" width="100" /></p>
+Enter your name: <input type="text" id="fname" onkeyup="myFunction()">
+<br><br>
+Enter your Email: <input type="text" id="email" onkeyup="myFunction1()">
+<br><br>
+<form id="gender" name="gender">
+	    Gender:
+	    <br>
+    <input type="radio" name="rads" value="male" />
+    Male<br>
+    <input type="radio" name="rads" value="female" />
+    Female
+</form>
+</div>
+<div class = border>
+    <br>
+<p><b>ABC COMPANY</b></p>
+<br>
+<p><img id = "output1" width="150" /></p>
+    <p>Name:<span id="demo"></span></p>
+    <p>Mail:<span id="demo1"></span></p>
+    <p>Gender:<span id="result"></span></p>
+    
+    </div>
+    
+<script>
+function loadFile(){
+    var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+     image = document.getElementById('output1');
+	image.src = URL.createObjectURL(event.target.files[0]);
+}
+function myFunction() {
+  var x = document.getElementById("fname").value;
+  document.getElementById("demo").innerHTML = x;
+}
+function myFunction1() 
+{
+    var y= document.getElementById("email").value;
+    document.getElementById("demo1").innerHTML = y;
+}
+document.gender.onclick = function(){
+    var val = document.gender.rads.value;
+    document.getElementById("result").innerHTML = val;
+  }
+</script>
+</body>
+</html>
